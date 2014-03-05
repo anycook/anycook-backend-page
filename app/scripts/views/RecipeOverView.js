@@ -1,28 +1,20 @@
+'use strict';
 define([
     'jquery',
+    'underscore',
     'Backbone',
     'views/RecipeView',
     'tpl!templates/recipeOverview'
-], function ($, Backbone, RecipeView, recipeOverviewTemplate) {
+], function ($, _, Backbone, RecipeView, recipeOverviewTemplate) {
     var RecipeOverview = Backbone.View.extend({
-        id: "recipes",
+        id: 'recipes',
         initialize : function(){
             _.bindAll(this, 'addRecipeView');
 
             var recipes = this.model;
-            recipes.on("add", this.addRecipeView);
+            recipes.on('add', this.addRecipeView);
 
-            //recipes.fetch();
             this.render();
-            //var $el = this.$el;
-            //recipes.fetch();
-
-            /*var i = setInterval(function() {
-                if(!$el.parent())
-                    clearInterval(i);
-                else
-                    recipes.fetch();
-            }, 10000);*/
         },
 
         render : function(){

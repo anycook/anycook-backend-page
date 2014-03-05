@@ -1,49 +1,38 @@
+'use strict';
 define([
     'jquery',
+    'underscore',
     'Backbone',
     'models/StatusModel',
     'tpl!templates/homeView'
-], function($, Backbone, StatusModel, homeViewTemplate){
+], function($, _, Backbone, StatusModel, homeViewTemplate){
     var HomeView = Backbone.View.extend({
-        id      : "home",
+        id      : 'home',
         events  : {
-            "click #copymysql"      : "copymysql",
-            "click #rebuildIndex"   : "rebuildIndex"
+            'click #rebuildIndex'   : 'rebuildIndex'
         },
         initialize : function(){
-            $("#content").empty().append(this.$el);
-            var model = this.model;
-            _.bindAll(this, "render");
+            $('#content').empty().append(this.$el);
+            _.bindAll(this, 'render');
             this.render();
-            model.on("change", this.render);
-
-            var $el = this.$el;
-            model.fetch();
-
-            /*var i = setInterval(function() {
-                if(!$el.parent())
-                    clearInterval(i);
-                else
-                    model.fetch();
-            }, 10000);*/
         },
         render: function(){
             var $el = this.$el;
             var model = this.model;
 
             var variables = {
-                dailyrecipe : model.get("dailyDish"),
-                recipes     : model.get("recipes"),
-                users       : model.get("users"),
-                ingredients : model.get("ingredients"),
-                tags        : model.get("tags"),
+                dailyrecipe : model.get('dailyDish'),
+                recipes     : model.get('recipes'),
+                users       : model.get('users'),
+                ingredients : model.get('ingredients'),
+                tags        : model.get('tags'),
                 active      : 0,
                 maxActive   : 0,
                 idle        : 0,
                 maxIdle     : 0
-            }
+            };
 
-            var connectionStatus = model.get("connectionStatus");
+            var connectionStatus = model.get('connectionStatus');
             if(connectionStatus){
                 _.extend(variables, {
                     active      : connectionStatus.numactive,
@@ -55,17 +44,11 @@ define([
 
             $el.html(homeViewTemplate(variables));
         },
-        copymysql   : function(event){
-            if(confirm("Wirklich kopieren? Die aktuelle Datenbank geht dabei verloren!")){
-                $.get("anycook-backend/copymysql", function(){
-                    alert("DB wurde vollständig kopiert");
-                });
-            }
-        },
-        rebuildIndex : function(event){
-            $.post("anycook-backend/index", function(){
-                alert("index neu generiert");
-            })
+        rebuildIndex : function(){
+            $.post('anycook-backend/index', function(){
+                /* global alert */
+                alert('index neu generiert');
+            });
         }
     });
     return HomeView;

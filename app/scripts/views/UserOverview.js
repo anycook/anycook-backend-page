@@ -1,3 +1,4 @@
+'use strict';
 define([
     'jquery',
     'underscore',
@@ -6,15 +7,14 @@ define([
     'tpl!templates/userOverview'
 ], function($, _, Backbone, UserView, userOverviewTemplate){
     var UserOverview = Backbone.View.extend({
-        id: "users",
+        id: 'users',
         className: 'panel panel-default',
         initialize : function(){
-            _.bindAll(this, "addUserView");
+            _.bindAll(this, 'addUserView');
             this.render();
             var model = this.model;
             model.each(this.addUserView);
         },
-
         render : function(){
             this.$el.html(userOverviewTemplate({
                 numUsers : this.model.length

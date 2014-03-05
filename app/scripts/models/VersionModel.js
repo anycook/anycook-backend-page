@@ -1,8 +1,9 @@
+'use strict';
 define([
     'Backbone'
 ], function(Backbone){
     var RecipeModel = Backbone.Model.extend({
-        idAttribute : "id"
+        idAttribute : 'id'
     });
     return RecipeModel;
 });

@@ -1,3 +1,4 @@
+'use strict';
 define([
     'jquery',
     'AnycookAPI.recipe',
@@ -6,28 +7,15 @@ define([
     'tpl!templates/versionOverview'
 ], function($, AnycookAPI, Backbone, VersionView, versionOverviewTemplate){
     var VersionOverview = Backbone.View.extend({
-        id: "versions",
+        id: 'versions',
         initialize : function(options){
-
-            var versions = this.model;
             this.recipeName = options.recipeName;
-            //recipes.fetch();
             this.render();
-            //var $el = this.$el;
-            //recipes.fetch();
-
-            /*var i = setInterval(function() {
-                if(!$el.parent())
-                    clearInterval(i);
-                else
-                    recipes.fetch();
-            }, 10000);*/
         },
-
         render : function(){
             var self = this;
             var $el = this.$el;
-            $("#content").empty().append($el);
+            $('#content').empty().append($el);
             $el.html(versionOverviewTemplate({
                 name: this.recipeName,
                 numVersions: this.model.length

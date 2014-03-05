@@ -142,24 +142,24 @@ require([
 
     $.ajaxSetup({
         global:true,
-        scriptCharset: "utf8" ,
-        contentType: "application/x-www-form-urlencoded; charset=utf8"
+        scriptCharset: 'utf8',
+        contentType: 'application/x-www-form-urlencoded; charset=utf8'
     });
 
-    $.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
+    $.ajaxPrefilter( function( options ) {
         options.xhrFields = {
-          withCredentials: true
+            withCredentials: true
         };
     });
 
-    $.when(AnycookAPI.init({appid:1, baseUrl: "http://10.1.0.200"})).then(function(){
+    $.when(AnycookAPI.init()).then(function(){
         AnycookAPI.session(function(response){
             console.log('logged in as '+response.name);
             //initialize routers
             new Backend();
             Backbone.history.start({pushState: false});
         },
-        function(response){
+        function(){
             window.location.href = 'http://localhost:9000';
         });
     });
@@ -169,22 +169,21 @@ require([
     // All navigation that is relative should be passed through the navigate
     // method, to be processed by the router.  If the link has a data-bypass
     // attribute, bypass the delegation completely.
-    $(document).on("click", "a:not([data-bypass])", function(evt) {
+    $(document).on('click', 'a:not([data-bypass])', function(evt) {
         // Get the anchor href and protcol
-        var href = $(this).attr("href");
-        var protocol = this.protocol + "//";
+        var href = $(this).attr('href');
+        var protocol = this.protocol + '//';
 
         // Ensure the protocol is not part of URL, meaning its relative.
-        if (href && href.slice(0, protocol.length) !== protocol &&
-            href.indexOf("javascript:") !== 0) {
-          // Stop the default event to ensure the link will not cause a page
-          // refresh.
-          evt.preventDefault();
+        if (href && href.slice(0, protocol.length) !== protocol) {
+            // Stop the default event to ensure the link will not cause a page
+            // refresh.
+            evt.preventDefault();
 
-          // `Backbone.history.navigate` is sufficient for all Routers and will
-          // trigger the correct events.  The Router's internal `navigate` method
-          // calls this anyways.
-          Backbone.history.navigate(href, true);
+            // `Backbone.history.navigate` is sufficient for all Routers and will
+            // trigger the correct events.  The Router's internal `navigate` method
+            // calls this anyways.
+            Backbone.history.navigate(href, true);
         }
     });
 
