@@ -1,0 +1,11 @@
+<td class="name"><a target="_blank" href="<%= recipeURI %>"><%= name %></a></td>
+<td class="date"><%= created %></td>
+<td class="viewed"><%= views %></td>
+<td>
+    <% if(activeId > -1){ %>
+        <span class="label label-success">aktiv</span>
+    <% } else { %>
+        <span class="label label-danger">inaktiv</span>
+    <% } %>
+</td>
+<td><a href="#recipe/<%= name %>">Details</a></td>

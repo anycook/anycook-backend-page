@@ -1,0 +1,14 @@
+{
+  "name": "anycook-backend-page",
+  "private": true,
+  "dependencies": {
+    "sass-bootstrap": "~3.0.0",
+    "jquery": "~1.10.2",
+    "requirejs": "~2.1.11",
+    "requirejs-tpl-jfparadis": "*",
+    "requirejs-text": "~2.0.10",
+    "backbone": "~1.1.2",
+    "anycook-api-js": "anycook/anycook-api-js"
+  },
+  "devDependencies": {}
+}
