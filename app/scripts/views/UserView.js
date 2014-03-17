@@ -20,7 +20,7 @@ define([
             $.extend(variables, {
                 createDate : new Date(variables.createDate),
                 orderBy : this.model.collection.orderBy
-            })
+            });
             $el.html(userViewTemplate(variables));
         }
     });
