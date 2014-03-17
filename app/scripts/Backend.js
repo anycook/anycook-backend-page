@@ -3,9 +3,8 @@ define([
     'AnycookAPI',
     'Backbone',
     'models/RecipeCollection',
-    'models/RecipeModel',
+    'models/UserCollection',
     'models/StatusModel',
-    'models/UserModel',
     'models/VersionModel',
     'views/HomeView',
     'views/RecipeOverview',
@@ -13,7 +12,7 @@ define([
     'views/VersionOverview',
     'AnycookAPI.recipe',
     'AnycookAPI.user'
-], function(AnycookAPI, Backbone, RecipeCollection, RecipeModel, StatusModel, UserModel, VersionModel, HomeView, RecipeOverview, UserOverview, VersionOverview){
+], function(AnycookAPI, Backbone, RecipeCollection, UserCollection, StatusModel, VersionModel, HomeView, RecipeOverview, UserOverview, VersionOverview){
     var Backend = Backbone.Router.extend({
         routes : {
             '': 'home',
@@ -58,10 +57,8 @@ define([
         users  : function(){
             $('.nav li').removeClass('active');
             $('#nav_users').addClass('active');
-            AnycookAPI.user(function(users){
-                var userCollection = new Backbone.Collection(users,{
-                    model: UserModel,
-                });
+            AnycookAPI.user(true, function(users){
+                var userCollection = new UserCollection(users);
                 var userView = new UserOverview({model:userCollection});
                 $('#content').empty().append(userView.$el);
             });

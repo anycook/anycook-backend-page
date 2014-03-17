@@ -1,11 +1,11 @@
 <div class="panel-heading">User (<%= numUsers %>)</div>
-<table id="userlistHeadline" class="table">
+<table id="userlistHeadline" class="table overviewTable">
     <tr>
-        <th class="id">Id</th>
-        <th class="name">Name</th>
-        <th class="registration">Angemeldet seit</th>
-        <th class="lastlogin">Letzte Anmeldung</th>
-        <th>Status</th>
+        <th class="id <% if(orderBy === 'id') {%>active<% } %>">Id <span class="glyphicon glyphicon-sort-by-order<% if(invertOrder) { %>-alt<% } %>"></span></th>
+        <th class="name <% if(orderBy === 'name') {%>active<% } %>">Name <span class="glyphicon glyphicon-sort-by-alphabet<% if(invertOrder) { %>-alt<% } %>"></span></th>
+        <th class="createDate <% if(orderBy === 'createDate') {%>active<% } %>">Angemeldet seit <span class="glyphicon glyphicon-sort-by-attributes<% if(invertOrder) { %>-alt<% } %>"></span></th>
+        <th class="lastLogin <% if(orderBy === 'lastLogin') {%>active<% } %>">Letzte Anmeldung <span class="glyphicon glyphicon-sort-by-attributes<% if(invertOrder) { %>-alt<% } %>"></span></th>
+        <th>Status <span class="glyphicon glyphicon-sort-by-alphabet<% if(invertOrder) { %>-alt<% } %>"></span></th>
         <th></th>
     </tr>
 </table>

@@ -1,7 +1,7 @@
-<td><%= id %></td>
-<td><%= name %></td>
-<td><%= createdate %></td>
-<td><%= lastlogin %></td>
+<td class="id <% if(orderBy === 'id') {%>active<% } %>"><%= id %></td>
+<td class="name <% if(orderBy === 'name') {%>active<% } %>"><%= name %></td>
+<td class="createDate <% if(orderBy === 'createDate') {%>active<% } %>"><%= createDate.toLocaleDateString() %></td>
+<td class="lastLogin <% if(orderBy === 'lastLogin') {%>active<% } %>"><% if(lastLogin === -1) { print('nie'); } else { print(new Date(lastLogin).toLocaleDateString()); } %></td>
 <td>
     <% if(level === 0){ %>
     <span class="label label-success">aktiv</span>

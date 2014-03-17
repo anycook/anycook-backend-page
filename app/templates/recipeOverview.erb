@@ -1,9 +1,9 @@
 <div class="panel panel-default">
     <div class="panel-heading">Rezepte (<%= numRecipes %>)</div>
     <div class="table-responsive">
-        <table id="recipeTable" class="table">
+        <table id="recipeTable" class="table overviewTable">
             <tr>
-                <th class="name <% if(orderBy === 'name') { print('active'); } %>">Name <span class="glyphicon glyphicon-sort-by-alphabet<% if(invertOrder) { print('-alt') } %>"></span></th>
+                <th class="name <% if(orderBy === 'name') { print('active'); } %>">Name <span class="glyphicon glyphicon-sort-by-alphabet<% if(invertOrder) { %>-alt<% } %>"></span></th>
                 <th class="created <% if(orderBy === 'created') { print('active'); } %>">Eingefügt <span class="glyphicon glyphicon-sort-by-attributes<% if(invertOrder) { print('-alt') } %>"></span></th>
                 <th class="views <% if(orderBy === 'views') { print('active'); } %>">Views <span class="glyphicon glyphicon-sort-by-attributes<% if(invertOrder) { print('-alt') } %>"></span></th>
                 <th class="activeId <% if(orderBy === 'activeId') { print('active'); } %>">Status <span class="glyphicon glyphicon-sort-by-attributes<% if(invertOrder) { print('-alt') } %>"></span></th>

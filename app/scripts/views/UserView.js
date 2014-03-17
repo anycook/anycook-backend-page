@@ -17,6 +17,10 @@ define([
             var model = this.model;
             var $el = this.$el;
             var variables = model.toJSON();
+            $.extend(variables, {
+                createDate : new Date(variables.createDate),
+                orderBy : this.model.collection.orderBy
+            })
             $el.html(userViewTemplate(variables));
         }
     });
