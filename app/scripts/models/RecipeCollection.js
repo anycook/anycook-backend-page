@@ -15,8 +15,8 @@ define([
             if(this.orderBy === 'activeId'){
                 if(data1 >= 0) { data1 = 0; }
                 if(data2 >= 0) { data2 = 0; }
-                if(data1 === data2) result = model1.get('name').localeCompare(model2.get('name'));
-                else result = data1 < data2 ? -1 : 1;
+                if(data1 === data2) { result = model1.get('name').localeCompare(model2.get('name')); }
+                else { result = data1 < data2 ? -1 : 1; }
             }
             else if(typeof data1 === 'string'){
                 result = model1.get(this.orderBy).localeCompare(model2.get(this.orderBy));
