@@ -1,4 +1,7 @@
-<div class="panel-heading">User (<%= numUsers %>)</div>
+<nav class="navbar navbar-default" role="navigation">
+    <p class="navbar-text">User (<%= numUsers %>)</p>
+</nav>
+<!--<div class="panel-heading">User (<%= numUsers %>)</div>-->
 <table id="userlistHeadline" class="table overviewTable">
     <tr>
         <th class="id <% if(orderBy === 'id') {%>active<% } %>">Id <span class="glyphicon glyphicon-sort-by-order<% if(invertOrder) { %>-alt<% } %>"></span></th>

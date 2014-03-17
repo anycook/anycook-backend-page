@@ -19,6 +19,12 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
     }
 }
 
+.dropdown{
+    a {
+        cursor: pointer;
+    }
+}
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
     .container {

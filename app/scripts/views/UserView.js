@@ -3,15 +3,15 @@ define([
     'jquery',
     'underscore',
     'Backbone',
-    'tpl!templates/userView'
+    'tpl!templates/userView',
 ], function($, _, Backbone, userViewTemplate){
     var UserView = Backbone.View.extend({
         className   : 'user',
         tagName     : 'tr',
         initialize: function(){
-            this.render();
             _.bindAll(this, 'render');
             this.model.on('change', this.render);
+            this.render();
         },
         render: function(){
             var model = this.model;

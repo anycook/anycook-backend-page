@@ -40,6 +40,7 @@ require.config({
         'AnycookAPI.upload': '../bower_components/anycook-api-js/src/anycookapi.upload',
         'AnycookAPI.user': '../bower_components/anycook-api-js/src/anycookapi.user',
         'Backbone': '../bower_components/backbone/backbone',
+        'bootstrap.dropdown': '../bower_components/sass-bootstrap/js/dropdown',
         'jquery' : '../bower_components/jquery/jquery',
         'text' : '../bower_components/requirejs-text/text',
         'templates' : '../templates',
@@ -121,6 +122,10 @@ require.config({
         'backbone': {
             deps: ['underscore'],
             exports: 'Backbone'
+        },
+        'bootstrap.dropdown': {
+            deps: ['jquery'],
+            exports: '$'
         },
         'underscore' : {
             exports : '_'

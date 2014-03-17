@@ -5,21 +5,27 @@ define([
     'models/RecipeCollection',
     'models/UserCollection',
     'models/StatusModel',
+    'models/UserModel',
     'models/VersionModel',
     'views/HomeView',
     'views/RecipeOverview',
+    'views/UserDetailview',
     'views/UserOverview',
     'views/VersionOverview',
     'AnycookAPI.recipe',
     'AnycookAPI.user'
-], function(AnycookAPI, Backbone, RecipeCollection, UserCollection, StatusModel, VersionModel, HomeView, RecipeOverview, UserOverview, VersionOverview){
+], function(AnycookAPI, Backbone, RecipeCollection, UserCollection, StatusModel, UserModel, VersionModel, HomeView, RecipeOverview, UserDetailview, UserOverview, VersionOverview){
     var Backend = Backbone.Router.extend({
         routes : {
             '': 'home',
             'messages': 'messages',
             'recipe': 'recipes',
             'recipe/:recipeName': 'versions',
-            'users': 'users'
+            'user': 'users',
+            'user/:userId': 'user'
+        },
+        initialize : function(){
+            //this.credentials = JSON.parse(anycookCredentials);
         },
         home: function(){
             $('.nav li').removeClass('active');
@@ -62,7 +68,15 @@ define([
                 var userView = new UserOverview({model:userCollection});
                 $('#content').empty().append(userView.$el);
             });
-
+        },
+        user : function(userId){
+            $('.nav li').removeClass('active');
+            $('#nav_users').addClass('active');
+            AnycookAPI.user(userId, true, function(user){
+                var userModel = new UserModel(user);
+                var userView = new UserDetailview({model:userModel});
+                $('#content').empty().append(userView.$el);
+            });
         }
     });
     return Backend;

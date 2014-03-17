@@ -1,0 +1,40 @@
+<nav class="navbar navbar-default" role="navigation">
+    <p class="navbar-text"><%= name %></p>
+    <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown navbar-right">
+            <a data-target="#" class="dropdown-toggle" role="button" data-toggle="dropdown">Optionen <b class="caret"></b></a>
+            <ul class="dropdown-menu" role="menu">
+                <% if(level === -1) { %><li><a id="activate">User aktivieren</a></li>
+                <% } else if(level === 0) { %><li><a id="deactivate">User deaktivieren</a></li><% } %>
+                <% if(level === 0) { %><li><a id="giveAdminRights">Administratorrechte geben</a></li>
+                <% } else if(level > 0) { %><li><a id="refuseAdminRights">Administratorrechte aufheben</a></li><% } %>
+                <!-- <li class="divider"></li>-->
+          </ul>
+        </li>
+    </ul>
+</nav>
+<div class="media">
+    <a href="" class="pull-left">
+        <img src="<%= image.big %>" alt="" class="media-object">
+    </a>
+
+    <div class="media-body">
+        <ul class="list-group">
+            <li class="list-group-item">Id: <%= id %>
+                <% if(level === 0){ %>
+                <span class="label label-success">aktiv</span>
+                <% } %>
+                <% if(level === 2){ %>
+                <span class="label label-warning">admin</span>
+                <% } %>
+                <% if(facebookID > 0){ %>
+                <span class="label label-primary">Facebook</span>
+                <% } %>
+            </li>
+            <li class="list-group-item">Mail: <%= mail %></li>
+            <% if(facebookID) { %><li class="list-group-item">Facebook Id: <%= facebookID %></li><% } %>
+            <% if(place) { %><li class="list-group-item">Ort: <%= place %></li><% } %>
+            <% if(text) { %><li class="list-group-item"><%= text %></li><% } %>
+        </ul>
+    </div>
+</div>
