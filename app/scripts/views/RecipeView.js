@@ -28,7 +28,9 @@ define([
 
             var variables = this.model.toJSON();
             $.extend(variables, {
-                recipeURI: recipeURI
+                recipeURI: recipeURI,
+                created : new Date(variables.created),
+                orderBy : this.model.collection.orderBy
             });
 
             $el.html(recipeViewTemplate(variables));

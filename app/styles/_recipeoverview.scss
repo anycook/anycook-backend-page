@@ -1,0 +1,16 @@
+#recipeTable{
+    th{
+        cursor: pointer;
+        &:hover{
+            text-decoration: underline;
+        }
+
+        &.active span{
+            opacity: 1;
+        }
+
+        span{
+            opacity: 0;
+        }
+    }
+}

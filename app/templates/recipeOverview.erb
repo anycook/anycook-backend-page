@@ -3,10 +3,10 @@
     <div class="table-responsive">
         <table id="recipeTable" class="table">
             <tr>
-                <th>Name</th>
-                <th>Eingefügt</th>
-                <th>Views</th>
-                <th>Status</th>
+                <th class="name <% if(orderBy === 'name') { print('active'); } %>">Name <span class="glyphicon glyphicon-sort-by-alphabet<% if(invertOrder) { print('-alt') } %>"></span></th>
+                <th class="created <% if(orderBy === 'created') { print('active'); } %>">Eingefügt <span class="glyphicon glyphicon-sort-by-attributes<% if(invertOrder) { print('-alt') } %>"></span></th>
+                <th class="views <% if(orderBy === 'views') { print('active'); } %>">Views <span class="glyphicon glyphicon-sort-by-attributes<% if(invertOrder) { print('-alt') } %>"></span></th>
+                <th class="status <% if(orderBy === 'status') { print('active'); } %>">Status <span class="glyphicon glyphicon-sort-by-attributes<% if(invertOrder) { print('-alt') } %>"></span></th>
                 <th></th>
             </tr>
         </table>

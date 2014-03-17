@@ -1,6 +1,6 @@
-<td class="name"><a target="_blank" href="<%= recipeURI %>"><%= name %></a></td>
-<td class="date"><%= created %></td>
-<td class="viewed"><%= views %></td>
+<td class="name <% if(orderBy === 'name') { print('active'); } %>"><a target="_blank" href="<%= recipeURI %>"><%= name %></a></td>
+<td class="created <% if(orderBy === 'created') { print('active'); } %>"><%= created.toLocaleDateString() %></td>
+<td class="views <% if(orderBy === 'views') { print('active'); } %>"><%= views %></td>
 <td>
     <% if(activeId > -1){ %>
         <span class="label label-success">aktiv</span>

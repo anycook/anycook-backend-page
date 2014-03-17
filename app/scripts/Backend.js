@@ -2,6 +2,7 @@
 define([
     'AnycookAPI',
     'Backbone',
+    'models/RecipeCollection',
     'models/RecipeModel',
     'models/StatusModel',
     'models/UserModel',
@@ -12,7 +13,7 @@ define([
     'views/VersionOverview',
     'AnycookAPI.recipe',
     'AnycookAPI.user'
-], function(AnycookAPI, Backbone, RecipeModel, StatusModel, UserModel, VersionModel, HomeView, RecipeOverview, UserOverview, VersionOverview){
+], function(AnycookAPI, Backbone, RecipeCollection, RecipeModel, StatusModel, UserModel, VersionModel, HomeView, RecipeOverview, UserOverview, VersionOverview){
     var Backend = Backbone.Router.extend({
         routes : {
             '': 'home',
@@ -34,10 +35,8 @@ define([
             $('.nav li').removeClass('active');
             $('#nav_recipes').addClass('active');
             console.log('loading recipes');
-            AnycookAPI.recipe(function(recipes){
-                var recipeCollection = new Backbone.Collection(recipes,{
-                    model: RecipeModel
-                });
+            AnycookAPI.recipe(true, function(recipes){
+                var recipeCollection = new RecipeCollection(recipes);
                 var recipeOverview = new RecipeOverview({model:recipeCollection});
                 $('#content').empty().append(recipeOverview.$el);
             });
