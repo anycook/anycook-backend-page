@@ -38,7 +38,7 @@ define([
         },
         clickCreated : function(){
             if(this.model.orderBy === 'created'){
-                this.model.invertOrder = !this.model.invertOrder
+                this.model.invertOrder = !this.model.invertOrder;
             }else {
                 this.model.orderBy = 'created';
                 this.model.invertOrder = true;
@@ -47,7 +47,7 @@ define([
         },
         clickName : function(){
             if(this.model.orderBy === 'name'){
-                this.model.invertOrder = !this.model.invertOrder
+                this.model.invertOrder = !this.model.invertOrder;
             }else {
                 this.model.orderBy = 'name';
                 this.model.invertOrder = false;
@@ -56,7 +56,7 @@ define([
         },
         clickViews : function(){
             if(this.model.orderBy === 'views'){
-                this.model.invertOrder = !this.model.invertOrder
+                this.model.invertOrder = !this.model.invertOrder;
             }else {
                 this.model.orderBy = 'views';
                 this.model.invertOrder = true;

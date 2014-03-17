@@ -2,6 +2,7 @@ define([
     'Backbone',
     'models/RecipeModel'
 ], function(Backbone, RecipeModel){
+    'use strict';
     var RecipeCollection = Backbone.Collection.extend({
         orderBy : 'created',
         invertOrder : true,
