@@ -1,7 +1,7 @@
 'use strict';
 define([
     'Backbone',
-    'text!/anycook-credentials.json'
+    'text!../../anycook-credentials.json'
 ], function(Backbone, anycookCredentials){
     var UserModel = Backbone.Model.extend({
         idAttribute : 'id',
