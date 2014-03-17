@@ -13,7 +13,8 @@ define([
             'click th.id' : 'clickId',
             'click th.name' : 'clickName',
             'click th.createDate' : 'clickCreateDate',
-            'click th.lastLogin' : 'clickLastLogin'
+            'click th.lastLogin' : 'clickLastLogin',
+            'click th.level' : 'clickStatus'
         },
         initialize : function(){
             _.bindAll(this, 'addUserView', 'render');
@@ -71,6 +72,15 @@ define([
             }
             this.model.sort();
         },
+        clickStatus : function(){
+            if(this.model.orderBy === 'level'){
+                this.model.invertOrder = !this.model.invertOrder;
+            }else {
+                this.model.orderBy = 'level';
+                this.model.invertOrder = true;
+            }
+            this.model.sort();
+        }
     });
     return UserOverview;
 });

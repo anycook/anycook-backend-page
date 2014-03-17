@@ -5,7 +5,7 @@
         <th class="name <% if(orderBy === 'name') {%>active<% } %>">Name <span class="glyphicon glyphicon-sort-by-alphabet<% if(invertOrder) { %>-alt<% } %>"></span></th>
         <th class="createDate <% if(orderBy === 'createDate') {%>active<% } %>">Angemeldet seit <span class="glyphicon glyphicon-sort-by-attributes<% if(invertOrder) { %>-alt<% } %>"></span></th>
         <th class="lastLogin <% if(orderBy === 'lastLogin') {%>active<% } %>">Letzte Anmeldung <span class="glyphicon glyphicon-sort-by-attributes<% if(invertOrder) { %>-alt<% } %>"></span></th>
-        <th>Status <span class="glyphicon glyphicon-sort-by-alphabet<% if(invertOrder) { %>-alt<% } %>"></span></th>
+        <th class="level <% if(orderBy === 'level') {%>active<% } %>">Status <span class="glyphicon glyphicon-sort-by-attributes<% if(invertOrder) { %>-alt<% } %>"></span></th>
         <th></th>
     </tr>
 </table>
