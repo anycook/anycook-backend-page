@@ -311,7 +311,8 @@ module.exports = function (grunt) {
                         '{,*/}*.html',
                         'styles/fonts/{,*/}*.*',
                         'xml/template.xml',
-                        'sounds/*.mp3'
+                        'sounds/*.mp3',
+                        'bower_components/sass-bootstrap/fonts/*.*'
                     ]
                 }]
             },
