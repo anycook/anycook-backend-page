@@ -11,7 +11,8 @@ define([
         events : {
             'click th.name ' : 'clickName',
             'click th.created ' : 'clickCreated',
-            'click th.views ' : 'clickViews'
+            'click th.views ' : 'clickViews',
+            'click th.activeId' : 'clickStatus'
         },
         initialize : function(){
             _.bindAll(this, 'addRecipeView', 'render');
@@ -60,6 +61,15 @@ define([
             }else {
                 this.model.orderBy = 'views';
                 this.model.invertOrder = true;
+            }
+            this.model.sort();
+        },
+        clickStatus : function(){
+            if(this.model.orderBy === 'activeId'){
+                this.model.invertOrder = !this.model.invertOrder;
+            }else {
+                this.model.orderBy = 'activeId';
+                this.model.invertOrder = false;
             }
             this.model.sort();
         },
