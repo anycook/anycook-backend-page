@@ -12,7 +12,8 @@ define([
             'click th.name ' : 'clickName',
             'click th.created ' : 'clickCreated',
             'click th.views ' : 'clickViews',
-            'click th.activeId' : 'clickStatus'
+            'click th.activeId' : 'clickStatus',
+            'keyup #search' : 'changeSearch'
         },
         initialize : function(){
             _.bindAll(this, 'addRecipeView', 'render');
@@ -76,6 +77,16 @@ define([
         addRecipeView : function(data){
             var recipe = new RecipeView({model: data});
             this.$('table').append(recipe.$el);
+        },
+        changeSearch : function(){
+            var value = $('#search').val().toLowerCase();
+            this.model.each(function(model){
+                if(value.length === 0) { model.set('visible', true); }
+                else {
+                    var name = model.get('name').toLowerCase();
+                    model.set('visible', name.indexOf(value) !== -1);
+                }
+            });
         }
     });
     return RecipeOverview;

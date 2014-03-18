@@ -9,8 +9,8 @@ define([
         className   : 'user',
         tagName     : 'tr',
         initialize: function(){
-            _.bindAll(this, 'render');
-            this.model.on('change', this.render);
+            _.bindAll(this, 'render', 'changeVisibility');
+            this.model.on('change:visible', this.changeVisibility);
             this.render();
         },
         render: function(){
@@ -22,6 +22,9 @@ define([
                 orderBy : this.model.collection.orderBy
             });
             $el.html(userViewTemplate(variables));
+        },
+        changeVisibility : function(){
+            this.$el.toggle(this.model.get('visible'));
         }
     });
     return UserView;

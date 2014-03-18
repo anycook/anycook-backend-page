@@ -14,7 +14,8 @@ define([
             'click th.name' : 'clickName',
             'click th.createDate' : 'clickCreateDate',
             'click th.lastLogin' : 'clickLastLogin',
-            'click th.level' : 'clickStatus'
+            'click th.level' : 'clickStatus',
+            'keyup #search' : 'changeSearch'
         },
         initialize : function(){
             _.bindAll(this, 'addUserView', 'render');
@@ -68,7 +69,7 @@ define([
                 this.model.invertOrder = !this.model.invertOrder;
             }else {
                 this.model.orderBy = 'lastLogin';
-                this.model.invertOrder = false;
+                this.model.invertOrder = true;
             }
             this.model.sort();
         },
@@ -80,6 +81,16 @@ define([
                 this.model.invertOrder = true;
             }
             this.model.sort();
+        },
+        changeSearch : function(){
+            var value = $('#search').val().toLowerCase();
+            this.model.each(function(model){
+                if(value.length === 0) {model.set('visible', true); }
+                else {
+                    var name = model.get('name').toLowerCase();
+                    model.set('visible', name.indexOf(value) !== -1);
+                }
+            });
         }
     });
     return UserOverview;

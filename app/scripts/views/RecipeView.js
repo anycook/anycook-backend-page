@@ -16,8 +16,8 @@ define([
 
         initialize : function(){
             this.render();
-            _.bindAll(this, 'render');
-            this.model.on('change', this.render);
+            _.bindAll(this, 'render', 'changeVisibility');
+            this.model.on('change:visible', this.changeVisibility);
         },
 
         render : function(){
@@ -37,6 +37,9 @@ define([
 
             if(recipe.get('active_id') === -1){ $el.addClass('warning'); }
         },
+        changeVisibility : function(){
+            this.$el.toggle(this.model.get('visible'));
+        }
         /*deactivate : function(event){
             var recipe = this.model;
             var attributes = {
