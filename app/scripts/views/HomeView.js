@@ -20,29 +20,7 @@ define([
             var $el = this.$el;
             var model = this.model;
 
-            var variables = {
-                dailyrecipe : model.get('dailyDish'),
-                recipes     : model.get('recipes'),
-                users       : model.get('users'),
-                ingredients : model.get('ingredients'),
-                tags        : model.get('tags'),
-                active      : 0,
-                maxActive   : 0,
-                idle        : 0,
-                maxIdle     : 0
-            };
-
-            var connectionStatus = model.get('connectionStatus');
-            if(connectionStatus){
-                _.extend(variables, {
-                    active      : connectionStatus.numactive,
-                    maxActive   : connectionStatus.maxactive,
-                    idle        : connectionStatus.numidle,
-                    maxIdle     : connectionStatus.maxidle
-                });
-            }
-
-            $el.html(homeViewTemplate(variables));
+            $el.html(homeViewTemplate(model.toJSON()));
         },
         rebuildIndex : function(){
             $.post('anycook-backend/index', function(){
