@@ -41,7 +41,7 @@ require.config({
         'AnycookAPI.user': '../bower_components/anycook-api-js/src/anycookapi.user',
         'Backbone': '../bower_components/backbone/backbone',
         'bootstrap.dropdown': '../bower_components/sass-bootstrap/js/dropdown',
-        'jquery' : '../bower_components/jquery/jquery',
+        'jquery' : '../bower_components/jquery/dist/jquery',
         'text' : '../bower_components/requirejs-text/text',
         'templates' : '../templates',
         'tpl': '../bower_components/requirejs-tpl-jfparadis/tpl',

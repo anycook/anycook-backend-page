@@ -2,7 +2,7 @@
 <td class="created <% if(orderBy === 'created') { print('active'); } %>"><%= created.toLocaleDateString() %></td>
 <td class="views <% if(orderBy === 'views') { print('active'); } %>"><%= views %></td>
 <td class="activeId <% if(orderBy === 'activeId') { print('active'); } %>">
-    <% if(activeId > -1){ %>
+    <% if(active){ %>
         <span class="label label-success">aktiv</span>
     <% } else { %>
         <span class="label label-danger">inaktiv</span>

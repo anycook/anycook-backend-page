@@ -2,12 +2,17 @@
     <a href="" class="pull-left">
         <img src="<%= image.small %>" alt="" class="media-object">
     </a>
+    <% if(active) { %>
+    <button class="deactivate btn btn-danger pull-right">deaktivieren</button>
+    <% } else { %>
+    <button class="activate btn btn-success pull-right">aktivieren</button>
+    <% } %>
 
     <div class="media-body">
         <h4 class="media-heading">Id: <%= id %> <small>von <a target="_blank" href="http://anycook.de/#/profile/<%= author.id %>"><%= author.name %></a></small></h4>
         <p><%= description %></p>
         <p>
-            <% if(id === activeId) { %>
+            <% if(active) { %>
             <span class="label label-success">aktiv</span>
             <% } %>
             <span class="label label-default">Zutaten: <span class="numIngredients"></span></span>

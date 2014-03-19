@@ -24,7 +24,6 @@ define([
 
             this.render();
         },
-
         render : function(){
             var self = this;
             var $el = this.$el;

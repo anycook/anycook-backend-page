@@ -6,7 +6,7 @@ define([
     'models/UserCollection',
     'models/StatusModel',
     'models/UserModel',
-    'models/VersionModel',
+    'models/versionCollection',
     'views/HomeView',
     'views/RecipeOverview',
     'views/UserDetailview',
@@ -14,7 +14,7 @@ define([
     'views/VersionOverview',
     'AnycookAPI.recipe',
     'AnycookAPI.user'
-], function(AnycookAPI, Backbone, RecipeCollection, UserCollection, StatusModel, UserModel, VersionModel, HomeView, RecipeOverview, UserDetailview, UserOverview, VersionOverview){
+], function(AnycookAPI, Backbone, RecipeCollection, UserCollection, StatusModel, UserModel, VersionCollection, HomeView, RecipeOverview, UserDetailview, UserOverview, VersionOverview){
     var Backend = Backbone.Router.extend({
         routes : {
             '': 'home',
@@ -52,12 +52,10 @@ define([
             $('#nav_recipes').addClass('active');
             console.log('loading versions for '+recipeName);
             AnycookAPI.recipe.version(recipeName, function(versions){
-                var versionCollection = new Backbone.Collection(versions,{
-                    model: VersionModel
-                });
-
-                var versionOverview = new VersionOverview({model:versionCollection, recipeName: recipeName});
-                $('#content').empty().append(versionOverview.$el);
+                var versionCollection = new VersionCollection(versions, {recipeName : recipeName});
+                var versionOverview = new VersionOverview({model:versionCollection});
+                $('#content').html(versionOverview.$el);
+                versionOverview.render();
             });
         },
         users  : function(){

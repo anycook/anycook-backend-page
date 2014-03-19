@@ -13,13 +13,11 @@ define([
             'click .deactivate' : 'deactivate',
             'click .delete'     : 'delete'
         },
-
         initialize : function(){
             this.render();
             _.bindAll(this, 'render', 'changeVisibility');
             this.model.on('change:visible', this.changeVisibility);
         },
-
         render : function(){
             var $el = this.$el;
             var recipe = this.model;
