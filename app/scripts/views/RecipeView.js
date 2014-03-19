@@ -28,6 +28,7 @@ define([
             $.extend(variables, {
                 recipeURI: recipeURI,
                 created : new Date(variables.created),
+                lastChange : new Date(variables.lastChange),
                 orderBy : this.model.collection.orderBy
             });
 

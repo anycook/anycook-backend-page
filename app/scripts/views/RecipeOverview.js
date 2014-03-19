@@ -11,6 +11,7 @@ define([
         events : {
             'click th.name ' : 'clickName',
             'click th.created ' : 'clickCreated',
+            'click th.lastChange' : 'clickLastChange',
             'click th.views ' : 'clickViews',
             'click th.activeId' : 'clickStatus',
             'keyup #search' : 'changeSearch'
@@ -42,6 +43,15 @@ define([
                 this.model.invertOrder = !this.model.invertOrder;
             }else {
                 this.model.orderBy = 'created';
+                this.model.invertOrder = true;
+            }
+            this.model.sort();
+        },
+        clickLastChange : function(){
+            if(this.model.orderBy === 'lastChange'){
+                this.model.invertOrder = !this.model.invertOrder;
+            }else {
+                this.model.orderBy = 'lastChange';
                 this.model.invertOrder = true;
             }
             this.model.sort();

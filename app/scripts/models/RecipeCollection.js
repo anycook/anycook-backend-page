@@ -4,7 +4,7 @@ define([
 ], function(Backbone, RecipeModel){
     'use strict';
     var RecipeCollection = Backbone.Collection.extend({
-        orderBy : 'created',
+        orderBy : 'lastChange',
         invertOrder : true,
         model: RecipeModel,
         comparator : function(model1, model2){

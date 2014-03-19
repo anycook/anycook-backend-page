@@ -11,6 +11,7 @@
         <tr>
             <th class="name <% if(orderBy === 'name') { print('active'); } %>">Name <span class="glyphicon glyphicon-sort-by-alphabet<% if(invertOrder) { %>-alt<% } %>"></span></th>
             <th class="created <% if(orderBy === 'created') { print('active'); } %>">Eingefügt <span class="glyphicon glyphicon-sort-by-attributes<% if(invertOrder) { print('-alt') } %>"></span></th>
+            <th class="lastChange <% if(orderBy === 'lastChange') { print('active'); } %>">Letzte Änderung <span class="glyphicon glyphicon-sort-by-attributes<% if(invertOrder) { print('-alt') } %>"></span></th>
             <th class="views <% if(orderBy === 'views') { print('active'); } %>">Views <span class="glyphicon glyphicon-sort-by-attributes<% if(invertOrder) { print('-alt') } %>"></span></th>
             <th class="activeId <% if(orderBy === 'activeId') { print('active'); } %>">Status <span class="glyphicon glyphicon-sort-by-attributes<% if(invertOrder) { print('-alt') } %>"></span></th>
             <th></th>
