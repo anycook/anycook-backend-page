@@ -3,7 +3,7 @@
   "private": true,
   "dependencies": {
     "sass-bootstrap": "~3.0.0",
-    "jquery": "~1.10.2",
+    "jquery": "~2.1.0",
     "requirejs": "~2.1.11",
     "requirejs-tpl-jfparadis": "*",
     "requirejs-text": "~2.0.10",
