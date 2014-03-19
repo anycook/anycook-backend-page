@@ -144,6 +144,7 @@ require([
     'AnycookAPI.session'
 ], function($, AnycookAPI, Backbone, Backend){
     $.support.cors = true;
+    Backbone.emulateJSON = false;
 
     $.ajaxSetup({
         global:true,
