@@ -32,7 +32,7 @@
                 <% } %>
             </li>
             <li class="list-group-item">Mail: <%= mail %></li>
-            <% if(facebookID) { %><li class="list-group-item">Facebook Id: <%= facebookID %></li><% } %>
+            <% if(facebookID) { %><li class="list-group-item">Facebook Id: <a target="_blank" href="https://www.facebook.com/<%= facebookID %>"><%= facebookID %></a></li><% } %>
             <% if(place) { %><li class="list-group-item">Ort: <%= place %></li><% } %>
             <% if(text) { %><li class="list-group-item"><%= text %></li><% } %>
         </ul>
