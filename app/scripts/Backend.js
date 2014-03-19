@@ -6,7 +6,7 @@ define([
     'models/UserCollection',
     'models/StatusModel',
     'models/UserModel',
-    'models/versionCollection',
+    'models/VersionCollection',
     'views/HomeView',
     'views/RecipeOverview',
     'views/UserDetailview',
