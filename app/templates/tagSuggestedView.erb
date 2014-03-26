@@ -1,0 +1,10 @@
+<div class="panel-heading">Vorgeschlagene Tags (<%= numTags %>)</div>
+<table class="table overviewTable">
+        <tr>
+            <th class="name <% if(orderBy === 'name') {%>active<% } %>">Tag <span class="glyphicon glyphicon-sort-by-alphabet<% if(invertOrder) { %>-alt<% } %>"></span></th>
+            <th class="recipeName <% if(orderBy === 'recipeName') {%>active<% } %>">Rezept <span class="glyphicon glyphicon-sort-by-alphabet<% if(invertOrder) { %>-alt<% } %>"></span></th>
+            <th class="suggester <% if(orderBy === 'suggester') {%>active<% } %>">vorgeschlagen von <span class="glyphicon glyphicon-sort-by-alphabet<% if(invertOrder) { %>-alt<% } %>"></span></th>
+            <th class="options btn-group">
+            </th>
+        </tr>
+</table>

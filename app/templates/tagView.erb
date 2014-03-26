@@ -1,0 +1,12 @@
+<td class="name <% if(orderBy === 'name') {%>active<% } %>"><%= name %></td>
+<% if(recipeNumber !== null) { %><td class="recipeNumber <% if(orderBy === 'recipeNumber') {%>active<% } %>"><%= recipeNumber %></td><% } %>
+<% if(recipeName !== null) { %>
+    <td class="recipeName <% if(orderBy === 'recipeName') {%>active<% } %>"><%= recipeName %></td>
+    <td class="suggester <% if(orderBy === 'suggester') {%>active<% } %>"><a href="#/user/<%= suggester.id %>"><%= suggester.name %></a></td>
+    <td class="options">
+        <div class="btn-group btn-group-xs">
+            <button type="button" class="btn btn-success accept">akzeptieren</button>
+            <button type="button" class="btn btn-danger refuse">ablehnen</button>
+        </div>
+    </td>
+<% } %>

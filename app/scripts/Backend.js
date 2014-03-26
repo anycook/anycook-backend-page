@@ -9,18 +9,21 @@ define([
     'models/VersionCollection',
     'views/HomeView',
     'views/RecipeOverview',
+    'views/TagOverview',
     'views/UserDetailview',
     'views/UserOverview',
     'views/VersionOverview',
     'AnycookAPI.recipe',
     'AnycookAPI.user'
-], function(AnycookAPI, Backbone, RecipeCollection, UserCollection, StatusModel, UserModel, VersionCollection, HomeView, RecipeOverview, UserDetailview, UserOverview, VersionOverview){
+], function(AnycookAPI, Backbone, RecipeCollection, UserCollection, StatusModel, UserModel, VersionCollection,
+    HomeView, RecipeOverview, TagOverview, UserDetailview, UserOverview, VersionOverview){
     var Backend = Backbone.Router.extend({
         routes : {
             '': 'home',
             'messages': 'messages',
             'recipe': 'recipes',
             'recipe/:recipeName': 'versions',
+            'tag': 'tags',
             'user': 'users',
             'user/:userId': 'user'
         },
@@ -57,6 +60,13 @@ define([
                 $('#content').html(versionOverview.$el);
                 versionOverview.render();
             });
+        },
+        tags : function(){
+            $('.nav li').removeClass('active');
+            $('#nav_tags').addClass('active');
+            var tagOverview = new TagOverview();
+            $('#content').html(tagOverview.el);
+            tagOverview.render();
         },
         users  : function(){
             $('.nav li').removeClass('active');

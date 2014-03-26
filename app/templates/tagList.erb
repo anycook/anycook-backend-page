@@ -1,0 +1,7 @@
+<div class="panel-heading">Tags (<%= numTags %>)</div>
+<table class="table overviewTable">
+        <tr>
+            <th class="name <% if(orderBy === 'name') {%>active<% } %>">Name <span class="glyphicon glyphicon-sort-by-alphabet<% if(invertOrder) { %>-alt<% } %>"></span></th>
+            <th class="recipeNumber <% if(orderBy === 'recipeNumber') {%>active<% } %>">Anzahl Rezepte <span class="glyphicon glyphicon-sort-by-order<% if(invertOrder) { %>-alt<% } %>"></span></th>
+        </tr>
+</table>

@@ -17,7 +17,7 @@ function($, _, AnycookAPI, Backbone, versionViewTemplate){
         initialize : function(){
             var self = this;
             this.model.on('sync', function(){
-                self.model.collection.fetch();
+                self.model.collection.reset();
             });
             this.model.on('change', this.render, this);
         },
