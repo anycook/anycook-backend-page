@@ -2,9 +2,10 @@
 define([
     'jquery',
     'underscore',
+    'AnycookAPI',
     'Backbone',
     'tpl!templates/tagView',
-], function($, _, Backbone, tagViewTemplate){
+], function($, _, AnycookAPI, Backbone, tagViewTemplate){
     'use strict';
     return Backbone.View.extend({
         className   : 'tag',
@@ -21,7 +22,7 @@ define([
                 .on('sync', function(){
                     AnycookAPI.recipe.tag(false, function(models){
                         self.collection.reset(models);
-                    })
+                    });
                 });
         },
         render: function(){

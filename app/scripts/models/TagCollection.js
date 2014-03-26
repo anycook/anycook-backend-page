@@ -1,7 +1,8 @@
 define([
     'Backbone',
+    'AnycookAPI',
     'models/TagModel'
-], function(Backbone, TagModel){
+], function(Backbone, AnycookAPI, TagModel){
     'use strict';
     return Backbone.Collection.extend({
         orderBy : 'recipeNumber',

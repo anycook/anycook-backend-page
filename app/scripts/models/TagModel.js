@@ -1,7 +1,8 @@
 'use strict';
 define([
+    'AnycookAPI',
     'Backbone'
-], function(Backbone){
+], function(AnycookAPI, Backbone){
     return Backbone.Model.extend({
         //idAttribute : 'name',
         initialize : function(){
@@ -19,7 +20,7 @@ define([
             visible : true
         },
         url : function(){
-            if(this.get("recipeName")) {
+            if(this.get('recipeName')) {
                 return AnycookAPI._settings().baseUrl+'/recipe/'+this.get('recipeName')+'/tags/'+this.get('name');
             }
         }
