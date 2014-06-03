@@ -11,16 +11,19 @@ define([
         events  : {
             'click #rebuildIndex'   : 'rebuildIndex'
         },
-        initialize : function(){
+        initialize : function(options){
             $('#content').empty().append(this.$el);
             _.bindAll(this, 'render');
+            this.model = {
+                status : options.status,
+                conf   : options.conf
+            };
             this.render();
         },
         render: function(){
             var $el = this.$el;
-            var model = this.model;
 
-            $el.html(homeViewTemplate(model.toJSON()));
+            $el.html(homeViewTemplate(this.model));
         },
         rebuildIndex : function(){
             $.post('anycook-backend/index', function(){

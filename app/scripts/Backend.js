@@ -34,9 +34,10 @@ define([
             $('.nav li').removeClass('active');
             $('#nav_home').addClass('active');
             console.log('loading home');
-            AnycookAPI._get('/backend/status', {}, function(json){
-                var status = new StatusModel(json);
-                new HomeView({model:status});
+            AnycookAPI._get('/backend/status', {}, function(status){
+                AnycookAPI._get('/backend/conf', {}, function(conf){
+                    new HomeView({conf:conf, status:status});
+                });
             });
         },
         recipes : function(){
