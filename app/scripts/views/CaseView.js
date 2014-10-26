@@ -16,15 +16,9 @@ define([
             'click .cancel'   : 'disableChangeMode'
         },
         initialize: function(){
-            var self = this;
             _.bindAll(this, 'render', 'changeVisibility');
             this.collection = this.model.collection;
             this.model.on('change:visible', this.changeVisibility);
-                /*.on('sync', function(){
-                    AnycookAPI.recipe.tag(false, function(models){
-                        self.collection.reset(models);
-                    });
-                });*/
             this.render();
         },
         render: function(){
@@ -50,7 +44,6 @@ define([
             this.$('.save-cancel').hide();
         },
         save : function() {
-            var name = this.$('.name input').val();
             var syntax = this.$('.syntax input').val();
             this.model.set('syntax', syntax);
             this.model.save();
