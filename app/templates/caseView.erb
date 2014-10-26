@@ -1,0 +1,20 @@
+<td class="name <% if(orderBy === 'name') {%>active<% } %>"><%= name %></td>
+<td class="syntax <% if(orderBy === 'syntax') {%>active<% } %>"><%= syntax %></td>
+<td class="buttons">
+    <div class="btn-group change-delete">
+        <button type="button" class="btn btn-default btn-sm change">
+            <span class="glyphicon glyphicon-pencil"></span>
+        </button>
+        <button type="button" class="btn btn-default btn-sm delete">
+            <span class="glyphicon glyphicon-trash"></span>
+        </button>
+    </div>
+    <div class="btn-group save-cancel" style="display:none">
+        <button type="button" class="btn btn-default btn-sm save">
+            <span class="glyphicon glyphicon-ok"></span>
+        </button>
+        <button type="button" class="btn btn-default btn-sm cancel">
+            <span class="glyphicon glyphicon-remove"></span>
+        </button>
+    </div>
+</td>

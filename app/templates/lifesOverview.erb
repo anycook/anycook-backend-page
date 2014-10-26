@@ -1,0 +1,47 @@
+<!-- Modal -->
+<div class="modal fade" id="addCaseModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="myModalLabel">New case</h4>
+          </div>
+          <div class="modal-body">
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label for="inputName" class="col-sm-2 control-label">Name</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="inputName" placeholder="Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputSyntax" class="col-sm-2 control-label">Syntax</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputSyntax" placeholder="Syntax">
+                    </div>
+                </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" id="saveCaseButton" class="btn btn-primary">Save</button>
+          </div>
+        </div>
+    </div>
+</div>
+<nav class="navbar navbar-default" role="navigation">
+    <p class="navbar-text">Cases (<%= numCases %>)</p>
+    <button id="addCase" type="button" class="btn btn-default navbar-btn">
+        <span class="glyphicon glyphicon-plus"></span>
+        add case
+    </button>
+</nav>
+<div class="table-responsive">
+    <table id="caseTable" class="table overviewTable">
+        <tr>
+            <th class="name <% if(orderBy === 'name') { print('active'); } %>">Name <span class="glyphicon glyphicon-sort-by-alphabet<% if(invertOrder) { %>-alt<% } %>"></span></th>
+            <th class="syntax <% if(orderBy === 'syntax') { print('active'); } %>">Syntax <span class="glyphicon glyphicon-sort-by-attributes<% if(invertOrder) { print('-alt') } %>"></span></th>
+            <th></th>
+        </tr>
+    </table>
+</div>

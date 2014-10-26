@@ -25,6 +25,7 @@ require.config({
         'AnycookAPI': '../bower_components/anycook-api-js/src/anycookapi',
         'AnycookAPI.autocomplete': '../bower_components/anycook-api-js/src/anycookapi.autocomplete',
         'AnycookAPI.backend': '../bower_components/anycook-api-js/src/anycookapi.backend',
+        'AnycookAPI.case': '../bower_components/anycook-api-js/src/anycookapi.case',
         'AnycookAPI.category': '../bower_components/anycook-api-js/src/anycookapi.category',
         'AnycookAPI.discover': '../bower_components/anycook-api-js/src/anycookapi.discover',
         'AnycookAPI.discussion': '../bower_components/anycook-api-js/src/anycookapi.discussion',
@@ -41,6 +42,7 @@ require.config({
         'AnycookAPI.user': '../bower_components/anycook-api-js/src/anycookapi.user',
         'Backbone': '../bower_components/backbone/backbone',
         'bootstrap.dropdown': '../bower_components/sass-bootstrap/js/dropdown',
+        'bootstrap.modal': '../bower_components/sass-bootstrap/js/modal',
         'jquery' : '../bower_components/jquery/dist/jquery',
         'text' : '../bower_components/requirejs-text/text',
         'templates' : '../templates',
@@ -57,6 +59,10 @@ require.config({
             exports: 'AnycookAPI'
         },
         'AnycookAPI.backend' : {
+            deps : ['AnycookAPI'],
+            exports: 'AnycookAPI'
+        },
+        'AnycookAPI.case' : {
             deps : ['AnycookAPI'],
             exports: 'AnycookAPI'
         },
@@ -124,6 +130,10 @@ require.config({
             exports: 'Backbone'
         },
         'bootstrap.dropdown': {
+            deps: ['jquery'],
+            exports: '$'
+        },
+        'bootstrap.modal': {
             deps: ['jquery'],
             exports: '$'
         },
