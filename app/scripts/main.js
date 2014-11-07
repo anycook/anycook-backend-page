@@ -176,7 +176,7 @@ require([
             Backbone.history.start({pushState: false});
         },
         function(){
-            window.location.href = 'http://localhost:9000';
+            window.location.href = 'http://anycook.de';
         });
     });
 

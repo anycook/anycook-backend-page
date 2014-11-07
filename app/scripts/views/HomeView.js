@@ -9,7 +9,8 @@ define([
     var HomeView = Backbone.View.extend({
         id      : 'home',
         events  : {
-            'click #rebuildIndex'   : 'rebuildIndex'
+            'click #rebuildIndex'   : 'rebuildIndex',
+            'click #sitemapButton'  : 'generateSitemaps'
         },
         initialize : function(options){
             $('#content').empty().append(this.$el);
@@ -26,9 +27,15 @@ define([
             $el.html(homeViewTemplate(this.model));
         },
         rebuildIndex : function(){
-            $.post('anycook-backend/index', function(){
+            $.post('backend/index', function(){
                 /* global alert */
                 alert('index neu generiert');
+            });
+        },
+        generateSitemaps : function(){
+            $.post(AnycookAPI._settings().baseUrl+'/backend/site_map', function(){
+                /* global alert */
+                alert('sitemaps neu generiert');
             });
         }
     });
