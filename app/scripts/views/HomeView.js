@@ -3,9 +3,10 @@ define([
     'jquery',
     'underscore',
     'Backbone',
+    'AnycookAPI',
     'models/StatusModel',
     'tpl!templates/homeView'
-], function($, _, Backbone, StatusModel, homeViewTemplate){
+], function($, _, Backbone, AnycookAPI, StatusModel, homeViewTemplate){
     var HomeView = Backbone.View.extend({
         id      : 'home',
         events  : {
