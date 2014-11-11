@@ -3,13 +3,15 @@ define([
     'jquery',
     'underscore',
     'Backbone',
+    'AnycookAPI',
     'tpl!templates/userDetailview',
     'bootstrap.dropdown'
-], function($, _, Backbone, userDetailviewTemplate){
+], function($, _, Backbone, AnycookAPI, userDetailviewTemplate){
     var UserView = Backbone.View.extend({
         id   : 'userDetailview',
         events: {
             'click #activate' : 'activateUser',
+            'click #resendActivation' : 'resendActivationMail',
             'click #deactivate' : 'deactivateUser',
             'click #giveAdminRights': 'giveAdminRights',
             'click #refuseAdminRights': 'activateUser'
@@ -42,6 +44,10 @@ define([
         giveAdminRights:function(){
             this.model.set('level', 2);
             this.model.save();
+        },
+        resendActivationMail: function(){
+            var userId = this.model.get('id');
+            $.post(AnycookAPI._settings().baseUrl+'/user/'+userId+'/resendActivationId');
         }
     });
     return UserView;

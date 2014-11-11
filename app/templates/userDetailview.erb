@@ -5,6 +5,7 @@
             <a data-target="#" class="dropdown-toggle" role="button" data-toggle="dropdown">Optionen <b class="caret"></b></a>
             <ul class="dropdown-menu" role="menu">
                 <% if(level === -1) { %><li><a id="activate">User aktivieren</a></li>
+                <li><a id="resendActivation">Akivierungs-Email erneut senden</a></li>
                 <% } else if(level === 0) { %><li><a id="deactivate">User deaktivieren</a></li><% } %>
                 <% if(level === 0) { %><li><a id="giveAdminRights">Administratorrechte geben</a></li>
                 <% } else if(level > 0) { %><li><a id="refuseAdminRights">Administratorrechte aufheben</a></li><% } %>
