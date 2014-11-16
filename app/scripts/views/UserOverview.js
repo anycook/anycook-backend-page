@@ -8,7 +8,6 @@ define([
 ], function($, _, Backbone, UserView, userOverviewTemplate){
     var UserOverview = Backbone.View.extend({
         id: 'users',
-        //className: 'panel panel-default',
         events : {
             'click th.id' : 'clickId',
             'click th.name' : 'clickName',

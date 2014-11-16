@@ -1,0 +1,20 @@
+<nav class="navbar navbar-default" role="navigation">
+    <p class="navbar-text">Mail Providers</p>
+    <form class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+            <input id="search" type="text" class="form-control" placeholder="Search">
+        </div>
+    </form>
+</nav>
+
+<div class="table-responsive">
+    <table id="mailproviderTable" class="table overviewTable">
+        <tr>
+            <th class="image">Logo</th>
+            <th class="shortName <% if(orderBy === 'shortName') { print('active'); } %>">Name <span class="glyphicon glyphicon-sort-by-alphabet<% if(invertOrder) { %>-alt<% } %>"></span></th>
+            <th class="fullName <% if(orderBy === 'fullName') { print('active'); } %>">Eingefügt <span class="glyphicon glyphicon-sort-by-attributes<% if(invertOrder) { print('-alt') } %>"></span></th>
+            <th class="redirect <% if(orderBy === 'redirect') { print('active'); } %>">Link <span class="glyphicon glyphicon-sort-by-attributes<% if(invertOrder) { print('-alt') } %>"></span></th>
+            <th></th>
+        </tr>
+    </table>
+</div>

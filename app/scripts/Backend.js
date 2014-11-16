@@ -2,6 +2,7 @@
 define([
     'AnycookAPI',
     'Backbone',
+    'models/MailProviderCollection',
     'models/RecipeCollection',
     'models/UserCollection',
     'models/StatusModel',
@@ -11,17 +12,20 @@ define([
     'views/RecipeOverview',
     'views/TagOverview',
     'views/LifesOverview',
+    'views/MailProvidersOverview',
     'views/UserDetailview',
     'views/UserOverview',
     'views/VersionOverview',
+    'AnycookAPI.mailproviders',
     'AnycookAPI.recipe',
     'AnycookAPI.user'
-], function(AnycookAPI, Backbone, RecipeCollection, UserCollection, StatusModel, UserModel, VersionCollection,
-    HomeView, RecipeOverview, TagOverview, LifesOverview, UserDetailview, UserOverview, VersionOverview){
+], function(AnycookAPI, Backbone, MailProviderCollection, RecipeCollection, UserCollection, StatusModel, UserModel, VersionCollection,
+    HomeView, RecipeOverview, TagOverview, LifesOverview, MailProvidersOverview, UserDetailview, UserOverview, VersionOverview){
     var Backend = Backbone.Router.extend({
         routes : {
             '': 'home',
             'lifes': 'lifes',
+            'mailproviders': 'mailproviders',
             'messages': 'messages',
             'recipe': 'recipes',
             'recipe/:recipeName': 'versions',
@@ -52,6 +56,15 @@ define([
                 $('#content').empty().append(recipeOverview.$el);
             });
 
+        },
+        mailproviders : function() {
+            $('.nav li').removeClass('active');
+            $('#nav_mailproviders').addClass('active');
+            AnycookAPI.mailproviders(function(mailproviders) {
+                var mailproviderCollection = new MailProviderCollection(mailproviders);
+                var mailproviderOverview = new MailProvidersOverview({model:mailproviderCollection});
+                $('#content').empty().append(mailproviderOverview.$el);
+            });
         },
         versions : function(recipeName){
             $('.nav li').removeClass('active');
