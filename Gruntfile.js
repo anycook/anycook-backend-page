@@ -42,9 +42,9 @@ module.exports = function (grunt) {
             gruntfile: {
                 files: ['Gruntfile.js']
             },
-            compass: {
+            sass: {
                 files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-                tasks: ['compass:server', 'autoprefixer']
+                tasks: ['sass:dist', 'autoprefixer']
             },
             styles: {
                 files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
@@ -144,7 +144,7 @@ module.exports = function (grunt) {
 
 
         // Compiles Sass to CSS and generates necessary files if requested
-        compass: {
+        /*compass: {
             options: {
                 sassDir: '<%= yeoman.app %>/styles',
                 cssDir: '.tmp/styles',
@@ -167,6 +167,19 @@ module.exports = function (grunt) {
             server: {
                 options: {
                     debugInfo: true
+                }
+            }
+        },*/
+
+        sass: {
+            options: {
+                sourceMap: true,
+                outputStyle: 'compressed',
+                includePaths: ['<%= yeoman.app %>/bower_components']
+            },
+            dist: {
+                files: {
+                    '<%= yeoman.dist %>/styles/main.css': '<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'
                 }
             }
         },
@@ -334,14 +347,14 @@ module.exports = function (grunt) {
         // Run some tasks in parallel to speed up build process
         concurrent: {
             server: [
-                'compass:server',
+                //'compass:server',
                 'copy:styles'
             ],
             test: [
                 'copy:styles'
             ],
             dist: [
-                'compass',
+                'sass',
                 'copy:styles',
                 'imagemin',
                 'svgmin'
@@ -360,20 +373,6 @@ module.exports = function (grunt) {
                     stubModules: ['text', 'tpl'],
                     removeCombined: true
                 }
-            }
-        },
-
-        aws: grunt.file.exists('aws-credentials.json') ? grunt.file.readJSON('aws-credentials.json') : {},
-        s3: {
-            options: {
-                accessKeyId: '<%= aws.accessKeyId %>',
-                secretAccessKey: '<%= aws.secretAccessKey %>',
-                bucket: '<%= aws.bucket %>',
-                region: '<%= aws.region %>'
-            },
-            build: {
-                cwd: 'dist/',
-                src: '**'
             }
         }
     });
@@ -434,10 +433,5 @@ module.exports = function (grunt) {
         'newer:jshint',
         'test',
         'build'
-    ]);
-
-    grunt.registerTask('upload', [
-        'default',
-        's3'
     ]);
 };
