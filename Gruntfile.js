@@ -130,7 +130,7 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: {
-                    '<%= yeoman.dist %>/styles/main.css': '<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'
+                    '.tmp/styles/main.css': '<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'
                 },
                 options: {
                     sourceMap: true,
@@ -281,7 +281,7 @@ module.exports = function (grunt) {
                 dot: true,
                 cwd: '<%= yeoman.app %>/styles',
                 dest: '.tmp/styles/',
-                src: '{,*/}*.css'
+                src: '{,*/}*.{css,map}'
             },
             credentials : {
                 src: 'anycook-credentials.json',
